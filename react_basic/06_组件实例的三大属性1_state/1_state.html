@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>react_hello</title>
+</head>
+<body>
+<!-- 容器 -->
+<div id="test"></div>
+<!-- 引入react核心库 -->
+<script src="../js/react.development.js"></script>
+<!-- 引入react-dom 用于支持react操作DOM -->
+<script src="../js/react-dom.development.js"></script>
+<!-- 引入babel用于jsx转js -->
+<script src="../js/babel.min.js"></script>
+
+<script type="text/babel">/* babel转义 */
+// 1. 创建组件
+class Weather extends React.Component {
+  // 构造器调用了 1次
+  constructor(props) {
+    super(props);
+    // 初始化状态
+    this.state = {
+      isHot: true,
+    }
+    /* 2. 通过构造函数中bind绑定this */
+    this.handleChangeState = this.handleChangeState.bind(this);
+  }
+
+  handleChangeState() {
+    // handleChangeState放在Weather的原型对象上
+    // 通过Weather实例调用changeWeather时，changeWeather中的this就是Weather
+    // 由于handleChange是作为onClick的回调，所以不是通过实例调用的，是直接调用
+    // 类中的方法默认开启了局部的严格模式，所以handleChangeState中this为undefined
+    let {state: {isHot}} = this;
+    // 状态修改需要setState进行更新，且更新是一种合并，不是替换
+    this.setState({
+      isHot: !isHot
+    })
+  }
+
+  // render调用了 1+n次
+  render() {
+    // 读取状态
+    let {state: {isHot}} = this;
+    /* 1. 箭头函数处理this */
+    // return <h1 onClick={() => this.handleChangeState()}>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
+    /* 2. 通过构造函数中bind绑定this */
+    return <h1 onClick={this.handleChangeState}>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
+  }
+
+}
+
+ReactDOM.render(<Weather/>, document.getElementById('test'))
+
+
+</script>
+</body>
+</html>

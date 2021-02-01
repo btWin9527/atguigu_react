@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>2_回调形式ref</title>
+</head>
+<body>
+<!-- 容器 -->
+<div id="test"></div>
+<!-- 引入react核心库 -->
+<script src="../js/react.development.js"></script>
+<!-- 引入react-dom 用于支持react操作DOM -->
+<script src="../js/react-dom.development.js"></script>
+<!-- 引入babel用于jsx转js -->
+<script src="../js/babel.min.js"></script>
+
+<script type="text/babel">/* babel转义 */
+/* 字符串API不建议使用 */
+// 创建组件
+class Demo extends React.Component {
+  // 展示左侧数据
+  showData = () => {
+    alert(this.inputRef.value);
+  }
+
+  // 展示右侧输入框数据
+  showData2 = () => {
+    alert(this.inputRef2.value);
+  }
+
+  render() {
+    return (
+      <div>
+        <input ref={currentNode => this.inputRef = currentNode} type="text" placeholder="点击按钮提示数据"/>&nbsp;
+        <button onClick={this.showData}>点我提示左侧数据</button>
+        &nbsp;
+        <input ref={e => this.inputRef2 = e} type="text" placeholder="失去焦点提示数据" onBlur={this.showData2}/>&nbsp;
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(<Demo/>, document.getElementById('test'))
+</script>
+</body>
+</html>

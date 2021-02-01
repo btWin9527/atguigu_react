@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>react_hello</title>
+</head>
+<body>
+<!-- 容器 -->
+<div id="test"></div>
+<div id="test1"></div>
+<!-- 引入react核心库 -->
+<script src="../js/react.development.js"></script>
+<!-- 引入react-dom 用于支持react操作DOM -->
+<script src="../js/react-dom.development.js"></script>
+<!-- 引入babel用于jsx转js -->
+<script src="../js/babel.min.js"></script>
+<!-- 引入prop-types 用于对组件标签属性进行限制 -->
+<script src="../js/prop-types.js"></script>
+
+<script type="text/babel">/* babel转义 */
+function speak() {
+
+}
+
+// 1. 创建组件
+class Person extends React.Component {
+  constructor(props) {
+    // 构造器是否接收props，是否传递给super,取决于是否希望在构造器中通过this访问props
+    super(props);
+    console.log('constructor', this.props)
+  }
+
+  // static 不需要实例化类，即可直接通过该类来调用的方法，即称之为“静态方法”
+  // 限制props参数限制
+  static propTypes = {
+    name: PropTypes.string.isRequired, // string类型 必须
+    sex: PropTypes.string,
+    age: PropTypes.number,
+    // speak: PropTypes.func, // 函数
+  }
+// 指定默认标签属性值
+  static defaultProps = {
+    sex: '女',
+    age: 18
+  }
+
+  render() {
+    let {name, age, sex} = this.props;
+    // props是只读的，不允许修改
+    return (
+      <ul>
+        <li>姓名: {name}</li>
+        <li>性别: {sex}</li>
+        <li>年龄: {age + 1}</li>
+      </ul>
+    )
+  }
+}
+
+
+ReactDOM.render(<Person name="tom" age={18} sex="男"/>, document.getElementById('test1'))
+// 简写
+// const p = {name: 'ab'}
+// ReactDOM.render(<Person {...p}/>, document.getElementById('test'))
+</script>
+</body>
+</html>

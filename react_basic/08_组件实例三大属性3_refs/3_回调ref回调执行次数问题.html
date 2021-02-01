@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>3_回调ref回调执行次数问题</title>
+</head>
+<body>
+<!-- 容器 -->
+<div id="test"></div>
+<!-- 引入react核心库 -->
+<script src="../js/react.development.js"></script>
+<!-- 引入react-dom 用于支持react操作DOM -->
+<script src="../js/react-dom.development.js"></script>
+<!-- 引入babel用于jsx转js -->
+<script src="../js/babel.min.js"></script>
+
+<script type="text/babel">/* babel转义 */
+// 创建组件
+class Demo extends React.Component {
+
+  state = {
+    isHot: true
+  }
+
+  showInfo = () => {
+    const {input1} = this;
+    alert(input1.value);
+  }
+
+  changeWeather = () => {
+    let {isHot} = this.state;
+    this.setState({
+      isHot: !isHot
+    })
+  }
+
+  saveInput = (c) => {
+    this.input1 = c;
+    console.log('@', c)
+  }
+
+  render() {
+    /*
+    * 使用ref回调函数以内联函数的方式调用时，在更新过程中该方法会被调用两次,
+    * 使用类绑定可以避免重新调用，不过无关紧要（开发使用内联即可）
+    *  */
+    const {isHot} = this.state;
+    return (
+      <div>
+        <h2>今天天气很{isHot ? '炎热' : '凉爽'}</h2>
+        {/*<input ref={(c) => {
+          this.input1 = c;
+          console.log('@', c)
+        }} type="text"/>*/}
+        <input ref={this.saveInput} type="text"/>
+        <br/><br/>
+        <button onClick={this.showInfo}>点我提示输入数据</button>
+        <button onClick={this.changeWeather}>切换天气</button>
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(<Demo/>, document.getElementById('test'))
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数柯里化</title>
+</head>
+<body>
+<!-- 容器 -->
+<div id="test"></div>
+<!-- 引入react核心库 -->
+<script src="../js/react.development.js"></script>
+<!-- 引入react-dom 用于支持react操作DOM -->
+<script src="../js/react-dom.development.js"></script>
+<!-- 引入babel用于jsx转js -->
+<script src="../js/babel.min.js"></script>
+
+<script type="text/babel">
+  // 1. 创建组件
+  class Login extends React.Component {
+    state = {
+      username: '',
+      password: ''
+    }
+
+    handleSubmit = (e) => {
+      e.preventDefault(); // 阻止表单提交
+      const {username, password} = this.state;
+      alert(`你输入的用户名是${username},你输入的密码是:${password}`)
+    }
+
+    // 不使用函数柯里化写法
+    saveFormData = (type, e) => {
+      this.setState({
+        [type]: e.target.value
+      })
+    }
+
+    render() {
+      return (
+        <form onSubmit={this.handleSubmit}>
+          用户名：<input type="text" name="username" onChange={e => this.saveFormData('username', e)}/>
+          密码：<input type="password" name="password" onChange={e => this.saveFormData('password', e)}/>
+          <button>登录</button>
+        </form>
+      )
+    }
+  }
+
+  ReactDOM.render(<Login/>, document.getElementById('test'))
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>1_类的基础知识</title>
+</head>
+<body>
+<script>
+  /*
+  * 总结：
+  *   1. 类中的构造器非必须写，要对实例进行一些初始化操作，如添加指定属性时才写
+  *   2. 如果A类继承了B类，且A类写了构造器，那么A类构造器中的super是必须要调用的
+  *   3. 类中定义的方法，都是放在了类的原型对象上，供实例使用
+  *
+  *
+  * */
+  // 创建Person类
+  class Person {
+    // 构造器方法
+    constructor(name, age) {
+      // 构造器中的this是类的实例对象
+      this.name = name;
+      this.age = age;
+    }
+
+    // 一般方法
+    speak() {
+      // speak方法放在哪里? --- 类的原型对象上
+      // 通过Person实例调用speak时，speak中的this就是Person实例
+      console.log(`我叫${this.name},年龄是${this.age}`)
+    }
+  }
+
+  // 创建一个Person的实例对象
+  const p1 = new Person('tom', 19);
+  const p2 = new Person('jerry', 19);
+
+  console.log(p1, 'p1')
+  console.log(p2, 'p2')
+  p1.speak()
+  p2.speak()
+
+  // 创建一个类Student，继承Person类
+  class Student extends Person {
+    constructor(name, age, grand) {
+      super(name, age);
+      this.grand = grand;
+    }
+
+    // 重写父类继承的方法
+    speak() {
+      console.log(`我叫${this.name},年龄是${this.age},我读${this.grand}年级`)
+    }
+
+    study() {
+      // speak方法放在哪里? --- 类的原型对象上
+      // 通过Person实例调用speak时，speak中的this就是Student实例
+      console.log('good good study')
+    }
+  }
+
+  const s1 = new Student('小张', 15, '高一');
+  console.log(s1, 's1')
+  s1.speak()
+  s1.study()
+
+  class Car {
+    constructor(name, price) {
+      this.name = name;
+      this.price = price;
+      // this.wheel = 4;
+    }
+
+    // 类中赋值语句，给Car实例对象添加一个属性a
+    a = 1;
+    wheel = 4;
+    // static 不需要实例化类，即可直接通过该类来调用的方法，即称之为“静态方法”
+    static c1 = 22;
+  }
+
+  const c1 = new Car('奔驰', 199)
+  console.log(c1, 'c1')
+</script>
+</body>
+</html>

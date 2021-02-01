@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>react_hello</title>
+</head>
+<body>
+<!-- 容器 -->
+<div id="test"></div>
+<!-- 引入react核心库 -->
+<script src="../js/react.development.js"></script>
+<!-- 引入react-dom 用于支持react操作DOM -->
+<script src="../js/react-dom.development.js"></script>
+<!-- 引入babel用于jsx转js -->
+<script src="../js/babel.min.js"></script>
+
+<script type="text/babel">/* babel转义 */
+/*
+* 注意区分：【js语句】与【js表达式】
+* 1. 表达式： 一个表达式会产生一个值，可以放在任何地方
+*     (1) a
+*     (2) a+b
+*     (3) demo(1)
+*     (4) arr.map()
+*     (5) function test() {}
+* 2. 语句（代码）
+*     + if(){}
+*     + for(){}
+*     + switch(){}
+* */
+const Fragment = React.Fragment;
+const data = ['angular', 'react', 'vue'];
+const obj = {
+  a: 1,
+  b: 2
+}
+// 1. 创建虚拟dom
+const VDOM = (
+  <Fragment>
+    <h1>前端js框架列表</h1>
+    <ul>
+      {
+        data.map(item => (<li key={item}>{item}</li>))
+      }
+    </ul>
+    {
+      Object.keys(obj).map(item => <div key={item}>{obj[item]}</div>)
+    }
+  </Fragment>
+);
+// 2. 渲染虚拟dom到页面
+ReactDOM.render(VDOM, document.getElementById('test'));
+</script>
+</body>
+</html>

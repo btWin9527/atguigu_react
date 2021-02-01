@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>state简写</title>
+</head>
+<body>
+<div id="test"></div>
+<script src="../js/react.development.js"></script>
+<script src="../js/react-dom.development.js"></script>
+<script src="../js/babel.min.js"></script>
+<script type="text/babel">
+  class Weather extends React.Component {
+    state = {
+      isHot: true,
+    }
+    // 自定义方法--要用赋值语句的形式+箭头函数
+    handleChangeState = () => {
+      let {state: {isHot}} = this;
+      this.setState({isHot: !isHot})
+    }
+
+    render() {
+      let {state: {isHot}} = this;
+      // 解决方法内部this指向有三种方法:bind;箭头函数;class内部声明式箭头函数
+      return <h1 onClick={this.handleChangeState}>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
+    }
+  }
+
+  ReactDOM.render(<Weather/>, document.getElementById('test'))
+</script>
+</body>
+</html>
