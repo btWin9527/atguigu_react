@@ -4,6 +4,11 @@ import Header from "./components/Header";
 import List from "./components/List";
 import Footer from "./components/Footer";
 import './App.css'
+/*
+* 状态组件
+* 状态功能：
+*         todos 渲染列表数据;对列表进行增删操作修改
+* */
 // 创建并暴露App组件
 export default class App extends Component {
   // 状态在哪，操作状态的方法就在哪

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {nanoid} from 'nanoid'; // 唯一值
 import './index.css'
 
+/* 无状态组件 */
 class Header extends Component {
 
   handleKeyUp = (event) => {

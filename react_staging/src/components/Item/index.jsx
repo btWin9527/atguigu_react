@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import './index.css'
 
+/* 状态组件
+* 状态用处：mouse 处理鼠标经过该列表显示不同的交互状态
+*  */
 class Item extends Component {
 
   state = {
