@@ -1,10 +1,17 @@
 import React, {Component} from 'react';
 import {nanoid} from 'nanoid'; // 唯一值
+import PropTypes from 'prop-types';
 import './index.css'
 
 /* 无状态组件 */
 class Header extends Component {
 
+  // 对接收的Props进行类型和必要性的限制
+  static propTypes = {
+    addTodo: PropTypes.func.isRequired
+  }
+
+  // 键盘事件回调
   handleKeyUp = (event) => {
     let {keyCode, target: {value}} = event;
     // 判断是否为回车

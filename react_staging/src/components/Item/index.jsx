@@ -10,12 +10,20 @@ class Item extends Component {
     mouse: false, // 标识鼠标移入,移除状态
   }
 
+  // 鼠标移入移除
   handleMouse = (flag) => {
     this.setState({mouse: flag});
   }
-
+// 勾选和取消
   handleCheck = (id, event) => {
     this.props.updateTodo(id, event.target.checked);
+  }
+
+  // 删除一个todo
+  handleDelete = (id) => {
+    if (window.confirm('确定删除吗?')) {
+      this.props.deleteTodo(id);
+    }
   }
 
   render() {
@@ -30,7 +38,12 @@ class Item extends Component {
           <input type="checkbox" defaultChecked={done} onChange={(event) => this.handleCheck(id, event)}/>
           <span>{name}</span>
         </label>
-        <button className="btn btn-danger" style={{display: mouse ? 'block' : 'none'}}>删除</button>
+        <button
+          onClick={() => this.handleDelete(id)}
+          className="btn btn-danger"
+          style={{display: mouse ? 'block' : 'none'}}>
+          删除
+        </button>
       </li>
     );
   }
