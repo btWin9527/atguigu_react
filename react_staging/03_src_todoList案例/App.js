@@ -85,11 +85,37 @@ export default class App extends Component {
     return (
       <div className="todo-container">
         <div className="todo-wrap">
+          <!-- Header组件 -->
           <Header addTodo={this.addTodo}/>
+          <!-- List组件 -->
           <List todos={todos} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo}/>
+          <!-- Footer组件 -->
           <Footer todos={todos} checkAllTodo={this.checkAllTodo} clearAllDone={this.clearAllDone}/>
         </div>
       </div>
     )
   }
 }
+/*
+* todoList功能组件划分：
+* + App组件       【容器组件】
+*   数据：todos [任务列表数据]
+*   事件：影响todos的相关事件
+*
+*   + Header组件  【功能组件】
+*     + 功能一：输入任务名称，按回车触发添加todos
+*
+*   + List组件    【列表渲染组件】
+*
+*     + Item组件  【功能组件】
+*       + 功能一：鼠标移过每一条item时，item显示高亮，且显示该列的删除按钮
+*       + 功能二：点击删除，提示是否删除弹窗(window.confirm),确认时删除该列的item项
+*       + 功能三：点击该item的选中按钮，修改该列的选中状态
+*
+*   + Footer组件  【功能组件】
+*       + 功能一：显示已完成和全部的数量
+*       + 功能二：点击全选按钮，todos列表全部选中
+*       + 功能三：点击取消选中，todos列表全部取消选中
+*       + 功能四：点击清除已完成任务，删除todos列表中已经选中的任务
+*
+* */
