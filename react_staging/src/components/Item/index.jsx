@@ -35,7 +35,7 @@ class Item extends Component {
         onMouseLeave={() => this.handleMouse(false)}
         onMouseEnter={() => this.handleMouse(true)}>
         <label>
-          <input type="checkbox" defaultChecked={done} onChange={(event) => this.handleCheck(id, event)}/>
+          <input type="checkbox" checked={done} onChange={(event) => this.handleCheck(id, event)}/>
           <span>{name}</span>
         </label>
         <button
