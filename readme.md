@@ -54,8 +54,12 @@
 
 ## 2.1 todoList案例
 
-```text
+![avatar](./img/github_search.gif)
 
+```text
+资源：
+  1. 功能效果如上gif图
+  2. 静态资源(F:\myPro\react_资料\react全家桶资料\04_静态页面\todos_page)
 ```
 
 ## 2.2 配置代理案例
