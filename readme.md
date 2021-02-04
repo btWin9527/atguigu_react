@@ -44,15 +44,15 @@
 
 > react教程：61~66(18.53)
 
-## 2021年02月03日
+## 2021年02月04日
 
-> react教程：66~70
+> react教程：66~73(00:47)
 
 <hr style="height:2px;background:  deepskyblue;"/>
 
 # 2. 案例简介
 
-## 2.1 todoList案例
+## 2.1 todoList案例  (✔)
 
 ![avatar](./img/github_search.gif)
 
@@ -62,7 +62,7 @@
   2. 静态资源(F:\myPro\react_资料\react全家桶资料\04_静态页面\todos_page)
 ```
 
-## 2.2 配置代理案例
+## 2.2 配置代理案例 （✔）
 
 ```text
 1. axios配置
@@ -70,7 +70,7 @@
 3. 配置setupProxy.js
 ```
 
-## 2.2 github搜索案例
+## 2.2 github搜索案例 （?）
 
 ![avatar](./img/github_search.gif)
 
@@ -90,4 +90,7 @@
       + 首次显示内容
       + loading状态
       + error网络异常状态显示
+  高端操作：
+     1. 发布订阅实现兄弟组件传值 (pubsub-js)
+     2. fetch发送请求
 ```
