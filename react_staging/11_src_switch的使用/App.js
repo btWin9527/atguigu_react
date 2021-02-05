@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import Home from "./pages/Home";
 import About from "./pages/About"; // 路由组件
+import Test from "./pages/Test"; // 路由组件
 import Header from "./components/Header"; // 一般组件
 import MyNavLink from "./components/MyNavLink";
 
@@ -35,8 +36,9 @@ class App extends Component {
 			              2.Switch可以提高路由匹配效率(单一匹配)。
                 */}
                 <Switch>
-                  <Route path="atguigu/home" component={Home}/>
-                  <Route path="atguigu/about" component={About}/>
+                  <Route path="/home" component={Home}/>
+                  <Route path="/about" component={About}/>
+                  <Route path="/about" component={Test}/>
                 </Switch>
               </div>
             </div>

@@ -48,6 +48,10 @@
 
 > react教程：66~73(00:47)
 
+## 2021年02月05日
+
+> react教程：73~80
+
 <hr style="height:2px;background:  deepskyblue;"/>
 
 # 2. 案例简介
@@ -94,3 +98,5 @@
      1. 发布订阅实现兄弟组件传值 (pubsub-js)
      2. fetch发送请求
 ```
+
+
