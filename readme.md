@@ -50,7 +50,7 @@
 
 ## 2021年02月05日
 
-> react教程：73~80
+> react教程：73~82
 
 <hr style="height:2px;background:  deepskyblue;"/>
 

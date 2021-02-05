@@ -7,6 +7,12 @@ import MyNavLink from "./components/MyNavLink";
 
 class App extends Component {
   render() {
+    /*
+          解决多级路径刷新页面样式丢失的问题
+          1.public/index.html 中 引入样式时不写 ./ 写 / （常用）
+          2.public/index.html 中 引入样式时不写 ./ 写 %PUBLIC_URL% （常用）
+          3.使用HashRouter (向服务器请求数据，默认#后面的为前端数据，不会参数请求发送)
+     */
     return (
       <div>
         <div className="row">
@@ -20,23 +26,16 @@ class App extends Component {
         <div className="row">
           <div className="col-xs-2 col-xs-offset-2">
             <div className="list-group">
-              <MyNavLink to="/about">About</MyNavLink>
-              <MyNavLink to="/home">Home</MyNavLink>
+              <MyNavLink to="/atguigu/about">About</MyNavLink>
+              <MyNavLink to="/atguigu/home">Home</MyNavLink>
             </div>
           </div>
           <div className="col-xs-6">
             <div className="panel">
               <div className="panel-body">
-                {/* 注册路由 */}
-                {/*
-                    switch
-                    使用多个路由时，使用switch包裹
-                    1.通常情况下，path和component是一一对应的关系。
-			              2.Switch可以提高路由匹配效率(单一匹配)。
-                */}
                 <Switch>
-                  <Route path="atguigu/home" component={Home}/>
-                  <Route path="atguigu/about" component={About}/>
+                  <Route path="/atguigu/home" component={Home}/>
+                  <Route path="/atguigu/about" component={About}/>
                 </Switch>
               </div>
             </div>
