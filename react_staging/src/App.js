@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import React, {Component} from "react";
+import {Route, Switch, Redirect} from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About"; // 路由组件
 import Header from "./components/Header"; // 一般组件
@@ -12,7 +12,7 @@ class App extends Component {
         <div className="row">
           <div className="col-xs-offset-2 col-xs-8">
             <div className="page-header">
-              <Header />
+              <Header/>
             </div>
           </div>
         </div>
@@ -28,10 +28,10 @@ class App extends Component {
             <div className="panel">
               <div className="panel-body">
                 <Switch>
-                  <Route exact path="/home" component={Home} />
-                  <Route exact path="/about" component={About} />
+                  <Route exact path="/home" component={Home}/>
+                  <Route exact path="/about" component={About}/>
                   {/* redirect路由重定向使用 */}
-                  <Redirect to="/about" />
+                  <Redirect to="/about"/>
                 </Switch>
               </div>
             </div>
