@@ -1,14 +1,20 @@
 // App组件
 import React, {Component} from 'react';
-import './App.less'
-import {Button} from 'antd'
+import {Route, Switch, BrowserRouter} from 'react-router-dom';
+import Login from "./pages/login/login";
+import Admin from "./pages/admin/admin";
+
+import './App.less';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Button type="primary">Primary Button</Button>
-      </div>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/login" component={Login}/>
+          <Route path="/" component={Admin}/>
+        </Switch>
+      </BrowserRouter>
     );
   }
 }

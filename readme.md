@@ -67,10 +67,10 @@
 > react后台管理项目(01~15)
 
 ```text
-react后台管理项目：
-1. 组件按需打包
-2. antd 按需引入配置
-3. antd默认主题配置（修改默认样式）
+react后台管理项目：  
+1. 组件按需打包   ✔
+2. antd 按需引入配置  ✔
+3. antd默认主题配置（修改默认样式） ✔
 4. 路由配置
 5. css reset（github搜索reset  minirest
 ```
