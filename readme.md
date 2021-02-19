@@ -62,6 +62,21 @@
 
 <hr style="height:2px;background:  deepskyblue;"/>
 
+## 2021年02月19日
+
+> react后台管理项目(01~15)
+
+```text
+react后台管理项目：
+1. 组件按需打包
+2. antd 按需引入配置
+3. antd默认主题配置（修改默认样式）
+4. 路由配置
+5. css reset（github搜索reset  minirest
+```
+
+
+
 # 2. 案例简介
 
 ## 2.1 todoList案例  (✔)
@@ -107,4 +122,33 @@
      2. fetch发送请求
 ```
 
+## 2.3 react按需打包
 
+```text
+// 第一步
+
+npm install react-app-rewired customize-cra babel-plugin-import -D
+
+// 或者
+yarn add customize-cra react-app-rewired --dev
+
+//第二步 修改package.json文件
+
+"scripts": {
+    "start": "react-app-rewired start",  //主要修改就是把以前的react-scripts包替换为react-app-rewired
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
+  },
+//第三步
+在项目根目录下创建config-overrides.js文件
+
+const { override, fixBabelImports } = require("customize-cra");
+module.exports = override(
+    fixBabelImports('import', {
+        libraryName: 'antd',
+        libraryDirectory: 'es',
+        style: true,//或者css, true代表运用less
+    }),
+);
+```
