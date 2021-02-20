@@ -60,8 +60,6 @@
 
 > react教程：85~91
 
-<hr style="height:2px;background:  deepskyblue;"/>
-
 ## 2021年02月19日
 
 > react后台管理项目(01~15)
@@ -71,11 +69,19 @@ react后台管理项目：
 1. 组件按需打包   ✔
 2. antd 按需引入配置  ✔
 3. antd默认主题配置（修改默认样式） ✔
-4. 路由配置
-5. css reset（github搜索reset  minirest
+4. 路由配置 ✔
+5. css reset（github搜索reset  minirest) ✔
 ```
 
+## 2021年02月07日
 
+> react教程：92~
+
+```text
+1. withRouter 解决一般组件实现路由跳转 withRouter(Header)
+```
+
+<hr style="height:2px;background:  deepskyblue;"/>
 
 # 2. 案例简介
 
@@ -122,7 +128,7 @@ react后台管理项目：
      2. fetch发送请求
 ```
 
-## 2.3 react按需打包
+## 2.3 antd按需引入(antd 4.x)
 
 ```text
 // 第一步
