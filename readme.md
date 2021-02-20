@@ -79,6 +79,15 @@ react后台管理项目：
 
 ```text
 1. withRouter 解决一般组件实现路由跳转 withRouter(Header)
+
+// redux学习
+1. 引入redux
+2. 创建store
+3. 创建reducer
+4. 在组件中引入store
+5. 组件调用store.dispatch分发通知redux
+6. 检测redux状态变化，更新视图
+7. 全局监听redux状态变化
 ```
 
 <hr style="height:2px;background:  deepskyblue;"/>
