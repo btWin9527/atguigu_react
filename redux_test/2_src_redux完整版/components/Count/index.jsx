@@ -1,36 +1,46 @@
 import React, {Component} from 'react';
+import store from "../../redux/store";
+// 引入actionCreator，专门用于创建action对象
+import {createDecrementAction, createIncrementAction, createIncrementAsyncAction} from "../../redux/count_action";
 
 class Count extends Component {
+
+  // 检测store状态的变化
+  // componentDidMount() {
+  //   store.subscribe(() => {
+  //     this.setState({}) // 触发render,更新视图
+  //   })
+  // }
 
   // 加法
   increment = () => {
     const {value} = this.selectNumber;
-    this.props.increment(value * 1);
+    // 直接调用dispatch分发当前任务通知redux,但redux不会触发视图的更新
+    store.dispatch(createIncrementAction(value * 1));
   }
   // 减法
   decrement = () => {
     const {value} = this.selectNumber;
-    this.props.decrement(value * 1);
+    store.dispatch(createDecrementAction(value * 1));
   }
   // 奇数再加
   incrementIfOdd = () => {
     const {value} = this.selectNumber;
-    let {count} = this.props;
+    let count = store.getState();
     if (count % 2 !== 0) {
-      this.props.increment(value * 1);
+      store.dispatch(createIncrementAction(value * 1));
     }
   }
   // 异步加
   incrementAsync = () => {
     const {value} = this.selectNumber;
-    this.props.asyncIncrement(value * 1, 500);
+    store.dispatch(createIncrementAsyncAction(value * 1, 500));
   }
 
   render() {
-    let {count} = this.props;
     return (
       <div>
-        <h1>当前求和为: {count}</h1>
+        <h1>当前求和为: {store.getState()}</h1>
         <select name="" id="" ref={c => this.selectNumber = c}>
           <option value="1">1</option>
           <option value="2">2</option>

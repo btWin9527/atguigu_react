@@ -177,3 +177,7 @@ module.exports = override(
     }),
 );
 ```
+
+## 2.4 react-redux的使用规则（类似vuex使用）
+
+![avatar](./img/react-redux模型图.png)
