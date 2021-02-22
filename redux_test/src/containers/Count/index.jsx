@@ -1,7 +1,7 @@
 // 引入connect连接ui组件与redux
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {createDecrementAction, createIncrementAction, createIncrementAsyncAction} from "../../redux/count_action";
+import {createDecrementAction, createIncrementAction, createIncrementAsyncAction} from "../../redux/actions/count";
 
 class Count extends Component {
 
@@ -30,10 +30,11 @@ class Count extends Component {
   }
 
   render() {
-    let {count} = this.props;
+    let {count, personNum} = this.props;
     return (
       <div>
         <h1>当前求和为: {count}</h1>
+        <h3>下方组件人数{personNum}</h3>
         <select name="" id="" ref={c => this.selectNumber = c}>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -54,7 +55,10 @@ class Count extends Component {
 }
 
 // 映射状态
-const mapStateToProps = (state) => ({count: state})
+const mapStateToProps = (state) => ({
+  count: state.count,
+  personNum: state.person.length,
+})
 
 // 映射操作状态的方法 对象写法配置
 const mapDispatchToProps = {

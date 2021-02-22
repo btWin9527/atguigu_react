@@ -92,12 +92,17 @@ react后台管理项目：
 
 ## 2021年 02月22日
 
-> react教程：101~107
+> react教程：101~109
 
 ```text
+求和组件完善：
 1. redux constant配置
 2. redux actionCreate配置
 3. 同步action和异步action
+4. react-redux功能添加
+
+Person组件添加
+  1. 
 ```
 
 <hr style="height:2px;background:  deepskyblue;"/>
