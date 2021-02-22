@@ -92,7 +92,13 @@ react后台管理项目：
 
 ## 2021年 02月22日
 
-> react教程：92~100
+> react教程：101~100
+
+```text
+1. redux constant配置
+2. redux actionCreate配置
+3. 同步action和异步action
+```
 
 <hr style="height:2px;background:  deepskyblue;"/>
 
