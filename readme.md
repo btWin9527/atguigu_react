@@ -73,7 +73,7 @@ react后台管理项目：
 5. css reset（github搜索reset  minirest) ✔
 ```
 
-## 2021年02月07日
+## 2021年02月20日
 
 > react教程：92~100
 
@@ -89,6 +89,10 @@ react后台管理项目：
 6. 检测redux状态变化，更新视图
 7. 全局监听redux状态变化
 ```
+
+## 2021年 02月22日
+
+> react教程：92~100
 
 <hr style="height:2px;background:  deepskyblue;"/>
 

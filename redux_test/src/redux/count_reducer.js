@@ -3,15 +3,16 @@
 * 1. 该文件是用于创建一个为Count组件服务的reducer, reducer的本质是一个函数
 * 2. reducer函数会接到两个参数，分别为：之前的状态preState,动作对象action ({type,data} = action)
 * */
+import {INCREMENT, DECREMENT} from "./constant";
 
 const initState = 0; // 初始状态值
 
 export default function countReducer(preState = initState, action) {
   const {type, data} = action;
   switch (type) {
-    case 'increment':
+    case INCREMENT:
       return preState + data;
-    case 'decrement':
+    case DECREMENT:
       return preState - data;
     default: // 默认返回初始值
       return preState;
