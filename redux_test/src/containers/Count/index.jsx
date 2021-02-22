@@ -6,20 +6,7 @@ import {createDecrementAction, createIncrementAction, createIncrementAsyncAction
 // 映射状态
 const mapStateToProps = (state) => ({count: state})
 
-// 映射操作状态的方法
-/*const mapDispatchToProps = (dispatch) => ({
-  increment: (data) => { // 通知redux执行加法
-    dispatch(createIncrementAction(data))
-  },
-  decrement: (data) => {
-    dispatch(createDecrementAction(data))
-  },
-  asyncIncrement: (data, time) => {
-    dispatch(createIncrementAsyncAction(data, time))
-  }
-})*/
-
-// 对象写法配置
+// 映射操作状态的方法 对象写法配置
 const mapDispatchToProps = {
   increment: createIncrementAction,
   decrement: createDecrementAction,
