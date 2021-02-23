@@ -5,15 +5,15 @@
 * */
 import {INCREMENT, DECREMENT} from "../constant";
 // 同步action
-export const createIncrementAction = (data) => ({type: INCREMENT, data})
+export const increment = (data) => ({type: INCREMENT, data})
 
-export const createDecrementAction = (data) => ({type: DECREMENT, data})
+export const decrement = (data) => ({type: DECREMENT, data})
 
 // 异步action( 异步action中一般会调用同步action)
-export const createIncrementAsyncAction = (data, time) => {
+export const incrementAsync = (data, time) => {
   return dispatch => {
     setTimeout(() => {
-      dispatch(createIncrementAction(data)); // 通知redux加data
+      dispatch(increment(data)); // 通知redux加data
     }, time)
   }
 }

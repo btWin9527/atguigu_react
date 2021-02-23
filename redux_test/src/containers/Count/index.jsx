@@ -1,7 +1,7 @@
 // 引入connect连接ui组件与redux
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {createDecrementAction, createIncrementAction, createIncrementAsyncAction} from "../../redux/actions/count";
+import {decrement, increment, incrementAsync} from "../../redux/actions/count";
 
 class Count extends Component {
 
@@ -26,7 +26,7 @@ class Count extends Component {
   // 异步加
   incrementAsync = () => {
     const {value} = this.selectNumber;
-    this.props.asyncIncrement(value * 1, 500);
+    this.props.incrementAsync(value * 1, 500);
   }
 
   render() {
@@ -62,9 +62,9 @@ const mapStateToProps = (state) => ({
 
 // 映射操作状态的方法 对象写法配置
 const mapDispatchToProps = {
-  increment: createIncrementAction,
-  decrement: createDecrementAction,
-  asyncIncrement: createIncrementAsyncAction
+  increment,
+  decrement,
+  incrementAsync
 }
 
 // 使用connect()()创建并暴露一个Count容器组件
