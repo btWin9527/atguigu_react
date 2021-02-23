@@ -101,8 +101,14 @@ react后台管理项目：
 3. 同步action和异步action
 4. react-redux功能添加
 
-Person组件添加
-  1. 
+```
+
+## 2021年 02月23日
+```text
+1. 纯函数
+
+2. 
+
 ```
 
 <hr style="height:2px;background:  deepskyblue;"/>
