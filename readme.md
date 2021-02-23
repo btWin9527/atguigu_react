@@ -104,12 +104,8 @@ react后台管理项目：
 ```
 
 ## 2021年 02月23日
-```text
-1. 纯函数
 
-2. 
-
-```
+> react教程：112~116（19.04）
 
 <hr style="height:2px;background:  deepskyblue;"/>
 
